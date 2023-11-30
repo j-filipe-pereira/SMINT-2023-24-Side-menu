@@ -3,7 +3,7 @@ import { IonModal, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonCo
 
 interface ReceitasDetailModalProps {
   itemSelected: Recipe | null;
-  onClose: () => void;
+  onClose: (feito : boolean, id: number) => void;
 }
 
 interface Recipe {
@@ -24,7 +24,7 @@ const ReceitasDetailModal: React.FC<ReceitasDetailModalProps> = ({ itemSelected,
         <IonToolbar>
           <IonTitle>{itemSelected?.name}</IonTitle>
           <IonButtons slot="end">
-            <IonButton onClick={onClose}>Fechar</IonButton>
+            <IonButton onClick={() => onClose(false, itemSelected!.id)}>Fechar</IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
@@ -32,8 +32,9 @@ const ReceitasDetailModal: React.FC<ReceitasDetailModalProps> = ({ itemSelected,
         <p>{itemSelected?.instructions}</p>
         <IonImg
                 src={itemSelected?.image}
-                alt="The Wisconsin State Capitol building in Madison, WI at night"
-            ></IonImg>
+                alt="Receita"
+        />
+        <IonButton onClick={() => onClose(true, itemSelected!.id)}>Receita feita</IonButton>
       </IonContent>
     </IonModal>
   );

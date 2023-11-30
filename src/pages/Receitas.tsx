@@ -1,5 +1,5 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonNote, IonLabel, IonBadge, IonModal, IonButton, IonImg } from '@ionic/react';
-import { checkmark } from 'ionicons/icons';
+import { checkmark, closeCircleOutline } from 'ionicons/icons';
 import { useEffect, useState } from "react";
 
 import { getInboxItems } from '../Utils/Utils';
@@ -13,20 +13,28 @@ interface Recipe {
   prepTime: string;
   cookTime: string;
   servings: number;
+  feito: boolean;
 }
 
 const Receitas: React.FC = () => {
 
   const [ Badge, setBadge ] = useState(true);
-  const [itemSelected, setItemSelected] = useState<Recipe| null>(null);
+  const [itemSelected, setItemSelected] = useState<Recipe | null>(null);
+  const [ Receitas, setReceitas ] = useState<Recipe[]>(getInboxItems());
 
-  const inboxItems = getInboxItems();
+  //const inboxItems = getInboxItems();
 
   const handleClickReceita = async (item : Recipe) => {
     setItemSelected(item)
 	}
 
-  const handleCloseModal = () => {
+  const handleCloseModal = (feito : boolean, id: number) => {
+    if(feito) {
+      const novasReceitas = [...Receitas];
+      const indiceReceita = Receitas.findIndex(receita => receita.id === id);
+      novasReceitas[indiceReceita].feito = true;
+      setReceitas(novasReceitas);
+    }
     setItemSelected(null);
   };
 
@@ -40,18 +48,17 @@ const Receitas: React.FC = () => {
           <IonTitle>Receitas</IonTitle>
         </IonToolbar>
       </IonHeader>
-
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">fdfd</IonTitle>
+            <IonTitle size="large">Receitas</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonList>
-        { inboxItems.map((item, index) => {
+        { Receitas.map((item, index) => {
 
             return (
-              <IonItem onClick={() => handleClickReceita(item)} key={ `item_${ index }`} detail={ true } lines="full" detailIcon={ checkmark }>
+              <IonItem onClick={() => handleClickReceita(item)} key={ `item_${ index }`} detail={ true } lines="full" detailIcon={ item.feito ? checkmark : closeCircleOutline }>
                 <IonLabel>
                   <h2>{ item.name }</h2>
                   <h4>{ item.prepTime }</h4>

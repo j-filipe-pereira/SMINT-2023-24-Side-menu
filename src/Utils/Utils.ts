@@ -9,6 +9,7 @@ interface Recipe {
     cookTime: string;
     servings: number;
     image: string;
+    feito: boolean;
 }
 
 const getInboxItems = (): Recipe[] => [
@@ -28,7 +29,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "30 minutos",
             "cookTime": "30 minutos",
             "servings": 4,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         {
             "id": 2,
@@ -45,7 +47,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "20 minutos",
             "cookTime": "30 minutos",
             "servings": 6,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         {
             "id": 3,
@@ -63,7 +66,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "25 minutos",
             "cookTime": "15 minutos",
             "servings": 2,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         {
             "id": 4,
@@ -81,7 +85,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "1 hora",
             "cookTime": "40 minutos",
             "servings": 8,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         {
             "id": 5,
@@ -99,7 +104,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "30 minutos",
             "cookTime": "20 minutos",
             "servings": 12,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         {
             "id": 6,
@@ -118,7 +124,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "40 minutos",
             "cookTime": "1 hora",
             "servings": 6,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         {
             "id": 7,
@@ -136,7 +143,8 @@ const getInboxItems = (): Recipe[] => [
             "prepTime": "20 minutos",
             "cookTime": "25 minutos",
             "servings": 8,
-            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?"
+            "image": "https://fh-sites.imgix.net/sites/2712/2020/07/16140235/3.-bacalhau-a-bras.jpg?",
+            "feito": false
         },
         // Adiciona mais 9 receitas aqui...
     ];       

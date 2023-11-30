@@ -59,8 +59,8 @@ const appPages: AppPage[] = [
     mdIcon: warningSharp
   },
   {
-    title: 'Desporto',
-    url: '/page/Desporto',
+    title: 'IMC',
+    url: '/IMC',
     iosIcon: bodyOutline,
     mdIcon: bodyOutline
   },
